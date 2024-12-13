@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0 auto; max-width: 800px; }
+        h1 { text-align: center; color: #444; }
+        .article { margin-bottom: 40px; }
+        .title { font-size: 24px; font-weight: bold; margin-bottom: 10px; }
+        .categories { font-size: 14px; color: #555; margin-bottom: 10px; }
+        .summary { font-size: 16px; font-style: italic; margin-bottom: 20px; }
+        .content { font-size: 14px; line-height: 1.8; }
+    </style>
+</head>
+<body>
+    <h1>{{book.title}}</h1>
+    {% for article in book.articles %}
+    <div class="article">
+        <div class="title">{{ article.title }}</div>
+        <div class="categories">{{ article.categories | join(", ") }}</div>
+        <div class="summary">{{ article.summary }}</div>
+        <div class="content">{{ article.content | safe }}</div>
+    </div>
+    {% endfor %}
+</body>
+</html>
